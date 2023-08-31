@@ -2,6 +2,7 @@ package data
 
 class TasksRepositoryMemory : TasksRepository() {
 
+    //private
     val tasks = mutableListOf<Task>()
 
     fun nextId(): Int = tasks.maxByOrNull { it.id ?: 0 }?.id?.inc() ?: 1
