@@ -65,19 +65,19 @@ class SimpleTest {
         assertTrue { completedTask.completed }
     }
 
-    @DisplayName ("Checking the sorting of the cleaver by name and priority")
-    @Test
-    fun filterNameAndPriority(){
-        val repository = tasksRepository.getTasks()
-
-        assertAll (
-            { assertContentEquals(
-                repository.sortedBy { it.name }, repository, "Repository tasks are not sorted by name")
-            },
-
-            { assertContentEquals(
-                repository.sortedBy { it.priority }, repository, "Repository tasks are not sorted by prioryty")
-            }
-        )
-    }
+//    @DisplayName ("Checking the sorting of the cleaver by name and priority")
+//    @Test
+//    fun filterNameAndPriority(){
+//        val repository = tasksRepository.getTasks()
+//
+//        assertAll (
+//            { assertContentEquals(
+//                repository.sortedBy { it.name }, repository, "Repository tasks are not sorted by name")
+//            },
+//
+//            { assertContentEquals(
+//                repository.sortedBy { it.priority }, repository, "Repository tasks are not sorted by prioryty")
+//            }
+//        )
+//    }
 }

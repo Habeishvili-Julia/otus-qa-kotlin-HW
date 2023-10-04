@@ -1,10 +1,21 @@
+import io.qameta.allure.gradle.base.AllureExtension
+
 plugins {
     application
     kotlin("jvm")
+    jacoco
     id("io.qameta.allure") version "2.11.2"
 }
 
 val allureVersion = "2.22.1"
+
+configure<AllureExtension> {
+    adapter.autoconfigure.set(true)
+    version.set(allureVersion)
+
+    adapter.frameworks.junit5.enabled.set(true)
+    adapter.frameworks.junit5.adapterVersion.set(allureVersion)
+}
 
 repositories {
     mavenCentral()
@@ -25,9 +36,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-//    finalizedBy("allureReport")
+    finalizedBy("jacocoTestReport", "allureReport")
 }
 
 application {
     mainClass.set("MainKt")
 }
+
